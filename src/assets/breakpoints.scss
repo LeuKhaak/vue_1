@@ -1,0 +1,61 @@
+@media (max-width: 800px) {
+
+    .todo-area {        
+        left: 15%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .todo-image {
+        background-image: none;
+    }
+
+    .todo-area {        
+        width: 85%;
+        left: 7.5%;
+    }
+
+}
+
+@media (max-width: 425px) {
+
+    .todo-filter {        
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 375px) {
+
+    .todo-list {
+        padding: 15px;        
+    
+        li {
+
+            span {                    
+                font-size: 16px;
+            }
+        }
+    }
+
+    .todo-wrapper {
+        // display: flex;       
+        // flex-wrap: wrap;
+        // justify-content: center;
+
+        button {
+            font-size: 16px;
+        }
+
+        button:not(:last-child) {
+            margin-right: 15px;
+        }
+
+        // button:first-child {
+        //     margin-right: 100px;
+        // }
+    }
+
+}
