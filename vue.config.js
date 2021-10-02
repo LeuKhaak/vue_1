@@ -1,6 +1,6 @@
 module.exports = {
     css: {
-        loderOptions: {
+        loaderOptions: {
             sass: {
                 prependData: '@import "@/assets/styles.scss";  '
             }
