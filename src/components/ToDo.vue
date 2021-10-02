@@ -1,6 +1,15 @@
 <template>
   <div class="todo">
-    NEW
+    <div class="todo-image">
+      <div class="todo-area">
+        <h3 class="todo-title">to do list</h3>
+        <ul class="todo-list">
+          <li class="todo-task">Task1</li>
+          <li class="todo-task">Task 2</li>
+          <li class="todo-task">Task 3</li>
+        </ul>
+      </div>
+    </div>    
   </div>
 </template>
 
@@ -10,20 +19,4 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+

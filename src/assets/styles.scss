@@ -1,5 +1,62 @@
-@import "./variables.scss";
+@import "./colors.scss";
+@import "./fonts.scss";
 
-body {
-    color: $main-color;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.todo {    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 1178px;
+    height: 640px;
+    background-color: cyan;   
+    background-image: $main-bgi;       
+}
+
+.todo-image {
+    width: 100%;
+    height: 100%;
+    background-image: url(./background.png);
+    background-repeat: no-repeat;
+    background-position: 650px center;
+    position: relative;
+}
+
+.todo-area {
+    position: absolute;
+    width: 540px;
+    height: 437px;
+    left: 319px;
+    top: 99px;
+
+    background: #FFF4E9;
+    border: 2px solid #FFCA93;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 35px 5px #FE9262;    
+}
+
+.todo-title {    
+    padding: 10px 0;
+    text-align: center;
+    background: #FFCA93;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #7F4B13;
+}
+
+.todo-list {
+    padding: 30px;
+}
+
+.todo-task {
+    display: flex;
+    background: #FFDFBE;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 15px;
 }
