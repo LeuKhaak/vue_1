@@ -1,58 +1,47 @@
-//@mixin mobile {
-//  @media (max-width: 482px) {
-//    @content;
-//  }
-//}
-
-@media (max-width: 800px) {
-  .todo-area {
-    left: 15%;
+@mixin desktop {
+  @media (max-width: 1060px) {
+    @content;
   }
 }
 
-@media (max-width: 600px) {
-  .todo-image {
-    background-image: none;
-  }
-
-  .todo-area {
-    width: 85%;
-    left: 7.5%;
+@mixin tablet-landscape {
+  @media (max-width: 965px) {
+    @content;
   }
 }
 
-@media (max-width: 425px) {
-  .todo-filter {
-    flex-direction: column;
+@mixin tablet-small {
+  @media (max-width: 890px) {
+    @content;
   }
 }
 
-@media (max-width: 375px) {
-  .todo-list {
-    padding: 15px;
-
-    li {
-      span {
-        font-size: 16px;
-      }
-    }
+@mixin tablet-small-2 {
+  @media (max-width: 730px) {
+    @content;
   }
+}
 
-  .todo-wrapper {
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
+@mixin tablet-portrait {
+  @media (max-width: 572px) {
+    @content;
+  }
+}
 
-    button {
-      font-size: 16px;
-    }
+@mixin mobile-big {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
 
-    button:not(:last-child) {
-      margin-right: 15px;
-    }
+@mixin mobile {
+  @media (max-width: 460px) {
+    @content;
+  }
+}
 
-    // button:first-child {
-    //     margin-right: 100px;
-    // }
+@mixin mobile-small {
+  @media (max-width: 410px) {
+    @content;
   }
 }
