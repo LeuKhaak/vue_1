@@ -22,18 +22,6 @@
   }
 }
 
-@mixin tablet-portrait {
-  @media (max-width: 572px) {
-    @content;
-  }
-}
-
-@mixin mobile-big {
-  @media (max-width: 520px) {
-    @content;
-  }
-}
-
 @mixin mobile {
   @media (max-width: 460px) {
     @content;
