@@ -1,0 +1,14 @@
+@mixin filter-font {
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: $filter;
+}
+
+%task {
+  display: flex;
+  background: $bg-task;
+  border-radius: 0.625rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}

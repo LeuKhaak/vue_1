@@ -1,5 +1,5 @@
 <template>
-  <div id="app">    
+  <div id="app">
     <ToDo />
   </div>
 </template>
@@ -14,4 +14,3 @@ export default {
   },
 };
 </script>
-
