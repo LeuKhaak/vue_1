@@ -2,8 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import store from "./store";
-import "./assets/styles/styles.scss";
-import "./assets/styles/breakpoints.scss";
 
 Vue.config.productionTip = false;
 
