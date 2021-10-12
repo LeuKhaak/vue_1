@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div :class="$style.content">
     <List :tasks="tasks" />
     <BtnAdd />
   </div>
@@ -17,3 +17,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" module>
+.content {
+  padding: 2rem;
+}
+</style>

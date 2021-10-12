@@ -1,6 +1,6 @@
 <template>
   <label>
-    <li>
+    <li :class="$style.task">
       <Checkbox />
       <TaskValue :task="task" />
       <BtnDelete />

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Filter from "@/components/Filter/Filter.vue";
+import Filter from "./Filter/Filter.vue";
 import Title from "./Title/Title.vue";
 import Content from "./Content/Content.vue";
 
@@ -65,16 +65,13 @@ export default {
     }
     .container {
       padding: 0 0.5rem;
-      .todo-area {
+      .area {
         max-width: 34rem;
         margin: 0 auto 0 auto;
         background: $bgLight;
         border: 0.125rem solid $bgTitle;
         box-sizing: border-box;
         box-shadow: 0px 0.5rem 2.2rem 0.3rem $shadow;
-        .todo-content {
-          padding: 2rem;
-        }
       }
     }
   }

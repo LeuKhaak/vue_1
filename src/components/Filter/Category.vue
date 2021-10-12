@@ -1,7 +1,7 @@
 <template>
   <label>
     <input type="radio" name="tasks" />
-    <span>{{ category.name }}</span>
+    <span :class="$style.category">{{ category.name }}</span>
   </label>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 <style lang="scss" module>
 label {
   display: flex;
-  span {
+  .category {
     display: block;
     @include filterFont;
     margin-right: 1.5rem;
@@ -31,7 +31,7 @@ label {
   input {
     appearance: none;
   }
-  input:checked ~ span,
+  input:checked ~ .category,
   .checkboxChecked {
     padding: 0.3rem 0.5625rem;
     border: 0.0625rem solid $filter;
