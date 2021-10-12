@@ -2,7 +2,7 @@
   <label>
     <li :class="$style.task">
       <Checkbox />
-      <TaskValue :task="task" />
+      <TaskValue :name="name" />
       <BtnDelete />
     </li>
   </label>
@@ -20,10 +20,7 @@ export default {
     BtnDelete,
   },
   props: {
-    task: {
-      type: Object,
-      requared: true,
-    },
+    name: String,
   },
 };
 </script>

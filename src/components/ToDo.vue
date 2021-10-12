@@ -4,8 +4,8 @@
       <div :class="$style.container">
         <div :class="$style.area">
           <Title />
-          <Content :tasks="tasks" />
-          <Filter :categories="categories" />
+          <Content />
+          <Filtering />
         </div>
       </div>
     </div>
@@ -13,27 +13,13 @@
 </template>
 
 <script>
-import Filter from "./Filter/Filter.vue";
+import Filtering from "./Filtering/Filtering.vue";
 import Title from "./Title/Title.vue";
 import Content from "./Content/Content.vue";
 
 export default {
-  data() {
-    return {
-      categories: [
-        { id: 1, name: "All", checked: true },
-        { id: 2, name: "Active", checked: false },
-        { id: 3, name: "Completed", checked: false },
-      ],
-      tasks: [
-        { id: 1, name: "Task 1" },
-        { id: 2, name: "Task 2" },
-        { id: 3, name: "Task 3" },
-      ],
-    };
-  },
   components: {
-    Filter,
+    Filtering,
     Title,
     Content,
   },

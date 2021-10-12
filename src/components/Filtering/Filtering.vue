@@ -4,8 +4,9 @@
     <div :class="$style.wrapper">
       <Category
         v-for="category in categories"
-        :key="category.name"
-        :category="category"
+        :key="category.id"
+        :name="category.name"
+        :isChecked="category.isChecked"
       />
     </div>
   </div>
@@ -16,7 +17,15 @@ import Left from "./Left.vue";
 import Category from "./Category.vue";
 
 export default {
-  props: ["categories"],
+  data() {
+    return {
+      categories: [
+        { id: 1, name: "All", isChecked: true },
+        { id: 2, name: "Active", isChecked: false },
+        { id: 3, name: "Completed", isChecked: false },
+      ],
+    };
+  },
   components: {
     Left,
     Category,

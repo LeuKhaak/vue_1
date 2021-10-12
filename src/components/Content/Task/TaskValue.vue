@@ -1,14 +1,11 @@
 <template>
-  <span :class="$style.text">{{ task.name }}</span>
+  <span :class="$style.text">{{ name }}</span>
 </template>
 
 <script>
 export default {
   props: {
-    task: {
-      type: Object,
-      requared: true,
-    },
+    name: String,
   },
 };
 </script>

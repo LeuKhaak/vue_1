@@ -1,18 +1,17 @@
 <template>
   <label>
-    <input type="radio" name="tasks" />
-    <span :class="$style.category">{{ category.name }}</span>
+    <input type="radio" name="tasks" :checked="isChecked" />
+    <span :class="$style.category">{{ name }}</span>
   </label>
 </template>
 
 <script>
 export default {
   props: {
-    category: {
-      type: Object,
-      requared: true,
-    },
+    name: String,
+    isChecked: Boolean,
   },
+  requared: true,
 };
 </script>
 
