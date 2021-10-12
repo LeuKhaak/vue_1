@@ -1,32 +1,32 @@
 <template>
-  <div class="todo-filter">
-    <ToDoFilterLeft />
-    <div class="todo-wrapper">
-      <ToDoFilterCategory
+  <div :class="$style.filter">
+    <Left />
+    <div :class="$style.wrapper">
+      <Category
         v-for="category in categories"
         :key="category.name"
-        v-bind:category="category"
+        :category="category"
       />
     </div>
   </div>
 </template>
 
 <script>
-import ToDoFilterLeft from "./ToDoFilterLeft.vue";
-import ToDoFilterCategory from "./ToDoFilterCategory.vue";
+import Left from "./Left.vue";
+import Category from "./Category.vue";
 
 export default {
   props: ["categories"],
   components: {
-    ToDoFilterLeft,
-    ToDoFilterCategory,
+    Left,
+    Category,
   },
 };
 </script>
 
-<style lang="scss">
-.todo-filter {
-  background: $bg-title;
+<style lang="scss" module>
+.filter {
+  background: $bgTitle;
   padding: 0.4rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -34,14 +34,14 @@ export default {
   @include mobile {
     flex-direction: column;
   }
-  .todo-wrapper {
+  .wrapper {
     display: flex;
     align-items: center;
     label {
       display: flex;
       span {
         display: block;
-        @include filter-font;
+        @include filterFont;
         margin-right: 1.5rem;
         padding: 0.3rem 0.625rem;
       }

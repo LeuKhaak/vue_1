@@ -1,42 +1,42 @@
 <template>
-  <button class="todo-delete"></button>
+  <button :class="$style.delete"></button>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style lang="scss">
-.todo-delete {
+<style lang="scss" module>
+.delete {
   width: 1.5rem;
   height: 1.5rem;
   margin-left: auto;
-  border: 0.1rem solid $bg-title;
+  border: 0.1rem solid $bgTitle;
   border-radius: 0.3rem;
   background: transparent;
   position: relative;
 }
-.todo-delete:before,
-.todo-delete:after {
+.delete:before,
+.delete:after {
   display: block;
   content: "";
   width: 1rem;
   height: 0.1rem;
   border-radius: 0.05rem;
-  background-color: $bg-title;
+  background-color: $bgTitle;
   position: absolute;
   left: calc(50% - 0.5rem);
   top: 50%;
   transform: rotate(45deg);
 }
-.todo-delete:after {
+.delete:after {
   transform: rotate(-45deg);
 }
-.todo-delete:hover {
+.delete:hover {
   border: 0.1rem solid $hover;
 }
-.todo-delete:hover:after,
-.todo-delete:hover:before {
+.delete:hover:after,
+.delete:hover:before {
   background-color: $hover;
 }
 </style>

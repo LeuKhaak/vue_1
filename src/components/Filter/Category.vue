@@ -16,12 +16,12 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" module>
 label {
   display: flex;
   span {
     display: block;
-    @include filter-font;
+    @include filterFont;
     margin-right: 1.5rem;
     padding: 0.3rem 0.625rem;
   }

@@ -1,11 +1,11 @@
 <template>
-  <div class="todo">
-    <div class="todo-image">
-      <div class="todo-container">
-        <div class="todo-area">
-          <ToDoTitle />
-          <ToDoContent v-bind:tasks="tasks" />
-          <ToDoFilter v-bind:categories="categories" />
+  <div :class="$style.todo">
+    <div :class="$style.bgImage">
+      <div :class="$style.container">
+        <div :class="$style.area">
+          <Title />
+          <Content :tasks="tasks" />
+          <Filter :categories="categories" />
         </div>
       </div>
     </div>
@@ -13,12 +13,11 @@
 </template>
 
 <script>
-import ToDoFilter from "./ToDoFilter/ToDoFilter.vue";
-import ToDoTitle from "./ToDoTitle/ToDoTitle.vue";
-import ToDoContent from "./ToDoContent/ToDoContent.vue";
+import Filter from "@/components/Filter/Filter.vue";
+import Title from "./Title/Title.vue";
+import Content from "./Content/Content.vue";
 
 export default {
-  //name: "ToDo",
   data() {
     return {
       categories: [
@@ -34,17 +33,17 @@ export default {
     };
   },
   components: {
-    ToDoFilter,
-    ToDoTitle,
-    ToDoContent,
+    Filter,
+    Title,
+    Content,
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .todo {
-  background-image: $main-bgi;
-  .todo-image {
+  background-image: $mainBgi;
+  .bgImage {
     margin: 0 auto 0 auto;
     max-width: 74rem;
     padding-top: 6rem;
@@ -55,14 +54,28 @@ export default {
     @include desktop {
       background-position: 35rem 4rem;
     }
-    @include tablet-landscape {
+    @include tabletLandscape {
       background-position: 30rem 4rem;
     }
-    @include tablet-small {
+    @include tabletSmall {
       background-position: 20rem 1rem;
     }
-    @include tablet-small-2 {
+    @include tabletSmallSecond {
       background-position: 10rem 1rem;
+    }
+    .container {
+      padding: 0 0.5rem;
+      .todo-area {
+        max-width: 34rem;
+        margin: 0 auto 0 auto;
+        background: $bgLight;
+        border: 0.125rem solid $bgTitle;
+        box-sizing: border-box;
+        box-shadow: 0px 0.5rem 2.2rem 0.3rem $shadow;
+        .todo-content {
+          padding: 2rem;
+        }
+      }
     }
   }
 }

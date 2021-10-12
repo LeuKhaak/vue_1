@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-add">
+  <div :class="$style.add">
     <input type="text" name="new-task" placeholder="Add a new task" />
   </div>
 </template>
@@ -8,10 +8,10 @@
 export default {};
 </script>
 
-<style lang="scss">
-.todo-add {
-  background: $bg-add;
-  border: 1.5px dashed $bg-title;
+<style lang="scss" module>
+.add {
+  background: $bgAdd;
+  border: 1.5px dashed $bgTitle;
   box-sizing: border-box;
   border-radius: 0.625rem;
   input {
@@ -24,15 +24,15 @@ export default {};
     line-height: 1.75rem;
     display: flex;
     align-items: center;
-    color: $font-dark;
+    color: $fontDark;
   }
   input::placeholder {
     text-align: center;
     font-family: Inter;
     font-size: 1.25rem;
-    color: $bg-title;
+    color: $bgTitle;
   }
-  @include mobile-small {
+  @include mobileSmall {
     font-size: 1rem;
   }
 }

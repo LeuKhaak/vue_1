@@ -1,5 +1,5 @@
 <template>
-  <span class="todo-text">{{ task.name }}</span>
+  <span :class="$style.text">{{ task.name }}</span>
 </template>
 
 <script>
@@ -13,15 +13,15 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 span {
   font-family: Inter;
   font-size: 1.25rem;
   line-height: 1.75rem;
   display: flex;
   align-items: center;
-  color: $font-dark;
-  @include mobile-small {
+  color: $fontDark;
+  @include mobileSmall {
     font-size: 1rem;
   }
 }
