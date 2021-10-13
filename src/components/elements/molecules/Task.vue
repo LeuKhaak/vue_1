@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Checkbox from "./Checkbox.vue";
-import TaskValue from "./TaskValue.vue";
-import BtnDelete from "./BtnDelete.vue";
+import Checkbox from "@/components/elements/atoms/Checkbox.vue";
+import TaskValue from "@/components/elements/atoms/TaskValue.vue";
+import BtnDelete from "@/components/elements/atoms/BtnDelete.vue";
 
 export default {
   components: {

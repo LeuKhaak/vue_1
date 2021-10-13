@@ -1,6 +1,11 @@
 <template>
-  <label>
-    <input type="radio" name="tasks" :checked="isChecked" />
+  <label :class="$style.categoryLabel">
+    <input
+      :class="$style.categoryInput"
+      type="radio"
+      name="tasks"
+      :checked="isChecked"
+    />
     <span :class="$style.category">{{ name }}</span>
   </label>
 </template>
@@ -15,23 +20,18 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
+<style scoped lang="scss" module>
 label {
   display: flex;
   .category {
     display: block;
     @include filterFont;
-    margin-right: 1.5rem;
     padding: 0.3rem 0.625rem;
   }
-  .completed ~ span {
-    margin-right: 0;
-  }
-  input {
+  .categoryInput {
     appearance: none;
   }
-  input:checked ~ .category,
-  .checkboxChecked {
+  .categoryInput:checked ~ .category {
     padding: 0.3rem 0.5625rem;
     border: 0.0625rem solid $filter;
     box-sizing: border-box;

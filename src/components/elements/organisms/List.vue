@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Task from "./Task/Task.vue";
+import Task from "@/components/elements/molecules/Task.vue";
 export default {
   data() {
     return {

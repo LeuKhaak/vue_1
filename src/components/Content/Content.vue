@@ -1,18 +1,18 @@
 <template>
   <div :class="$style.content">
     <List :tasks="tasks" />
-    <BtnAdd />
+    <AddTask />
   </div>
 </template>
 
 <script>
-import BtnAdd from "./BtnAdd.vue";
-import List from "./List.vue";
+import AddTask from "@/components/elements/atoms/AddTask.vue";
+import List from "@/components/elements/organisms/List.vue";
 
 export default {
   props: ["tasks"],
   components: {
-    BtnAdd,
+    AddTask,
     List,
   },
 };

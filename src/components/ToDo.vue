@@ -3,7 +3,7 @@
     <div :class="$style.bgImage">
       <div :class="$style.container">
         <div :class="$style.area">
-          <Title />
+          <TitleH3 :title="title" />
           <Content />
           <Filtering />
         </div>
@@ -13,14 +13,19 @@
 </template>
 
 <script>
-import Filtering from "./Filtering/Filtering.vue";
-import Title from "./Title/Title.vue";
-import Content from "./Content/Content.vue";
+import Filtering from "@/components/elements/molecules/Filtering.vue";
+import TitleH3 from "@/components/elements/atoms/TitleH3";
+import Content from "@/components/Content/Content.vue";
 
 export default {
+  data() {
+    return {
+      title: "to do list",
+    };
+  },
   components: {
     Filtering,
-    Title,
+    TitleH3,
     Content,
   },
 };

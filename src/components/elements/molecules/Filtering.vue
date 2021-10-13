@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.filter">
-    <Left />
+    <Counter />
     <div :class="$style.wrapper">
-      <Category
+      <CategoryRadio
         v-for="category in categories"
         :key="category.id"
         :name="category.name"
@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Left from "./Left.vue";
-import Category from "./Category.vue";
+import Counter from "@/components/elements/atoms/Counter";
+import CategoryRadio from "@/components/elements/atoms/CategoryRadio";
 
 export default {
   data() {
@@ -27,8 +27,8 @@ export default {
     };
   },
   components: {
-    Left,
-    Category,
+    Counter,
+    CategoryRadio,
   },
 };
 </script>
@@ -44,29 +44,10 @@ export default {
     flex-direction: column;
   }
   .wrapper {
+    width: 18.5rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    label {
-      display: flex;
-      span {
-        display: block;
-        @include filterFont;
-        margin-right: 1.5rem;
-        padding: 0.3rem 0.625rem;
-      }
-      .completed ~ span {
-        margin-right: 0;
-      }
-      input {
-        appearance: none;
-      }
-      input:checked ~ span {
-        padding: 0.3rem 0.5625rem;
-        border: 0.0625rem solid $filter;
-        box-sizing: border-box;
-        border-radius: 0.625rem;
-      }
-    }
   }
 }
 </style>

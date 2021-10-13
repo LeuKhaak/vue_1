@@ -1,6 +1,11 @@
 <template>
   <div :class="$style.add">
-    <input type="text" name="new-task" placeholder="Add a new task" />
+    <input
+      :class="$style.taskInput"
+      type="text"
+      name="new-task"
+      placeholder="Add a new task"
+    />
   </div>
 </template>
 
@@ -14,7 +19,7 @@ export default {};
   border: 1.5px dashed $bgTitle;
   box-sizing: border-box;
   border-radius: 0.625rem;
-  input {
+  .taskInput {
     background: transparent;
     border: none;
     width: calc(100% - 2rem);
@@ -26,7 +31,7 @@ export default {};
     align-items: center;
     color: $fontDark;
   }
-  input::placeholder {
+  .taskInput::placeholder {
     text-align: center;
     font-family: Inter;
     font-size: 1.25rem;
