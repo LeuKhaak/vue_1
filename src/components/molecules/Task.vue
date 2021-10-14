@@ -1,6 +1,11 @@
 <template>
   <label :class="$style.task">
-    <input :class="$style.check" type="checkbox" name="task" />
+    <input
+      :class="$style.check"
+      type="checkbox"
+      name="task"
+      :checked="isChecked"
+    />
     <span :class="$style.text">{{ name }}</span>
     <button :class="$style.delete"></button>
   </label>
@@ -10,6 +15,7 @@
 export default {
   props: {
     name: String,
+    isChecked: Boolean,
   },
 };
 </script>
@@ -19,23 +25,24 @@ export default {
   @extend %task;
   .check {
     appearance: none;
-  }
-  .check:before {
-    content: "";
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: 0.125rem solid $bgChecked;
-    box-sizing: border-box;
-    border-radius: 0.3rem;
-    margin-right: 1.5rem;
-  }
-  .check:checked:before {
-    background: $bgChecked url(../../assets/images/checked.png) center no-repeat;
-    border: 0;
+    &:before {
+      content: "";
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 0.125rem solid $bgChecked;
+      box-sizing: border-box;
+      border-radius: 0.3rem;
+      margin-right: 1.5rem;
+    }
+    &:checked:before {
+      background: $bgChecked url(../../assets/images/checked.png) center
+        no-repeat;
+      border: 0;
+    }
   }
   .text {
     font-family: Inter;
@@ -56,29 +63,29 @@ export default {
     border-radius: 0.3rem;
     background: transparent;
     position: relative;
-  }
-  .delete:before,
-  .delete:after {
-    display: block;
-    content: "";
-    width: 1rem;
-    height: 0.1rem;
-    border-radius: 0.05rem;
-    background-color: $bgTitle;
-    position: absolute;
-    left: calc(50% - 0.5rem);
-    top: 50%;
-    transform: rotate(45deg);
-  }
-  .delete:after {
-    transform: rotate(-45deg);
-  }
-  .delete:hover {
-    border: 0.1rem solid $hover;
-  }
-  .delete:hover:after,
-  .delete:hover:before {
-    background-color: $hover;
+    &:before,
+    &:after {
+      display: block;
+      content: "";
+      width: 1rem;
+      height: 0.1rem;
+      border-radius: 0.05rem;
+      background-color: $bgTitle;
+      position: absolute;
+      left: calc(50% - 0.5rem);
+      top: 50%;
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:hover {
+      border: 0.1rem solid $hover;
+    }
+    &:hover:after,
+    &:hover:before {
+      background-color: $hover;
+    }
   }
 }
 </style>

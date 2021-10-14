@@ -1,6 +1,11 @@
 <template>
   <div :class="$style.list">
-    <Task v-for="task in tasks" :key="task.id" :name="task.name" />
+    <Task
+      v-for="task in tasks"
+      :key="task.id"
+      :name="task.name"
+      :isChecked="task.isChecked"
+    />
   </div>
 </template>
 
@@ -10,9 +15,9 @@ export default {
   data() {
     return {
       tasks: [
-        { id: 1, name: "Task 1" },
-        { id: 2, name: "Task 2" },
-        { id: 3, name: "Task 3" },
+        { id: 1, name: "Task 1", isChecked: true },
+        { id: 2, name: "Task 2", isChecked: false },
+        { id: 3, name: "Task 3", isChecked: false },
       ],
     };
   },

@@ -16,7 +16,6 @@
 import TaskList from "@/components/organisms/TaskList.vue";
 
 export default {
-  props: ["tasks"],
   components: {
     TaskList,
   },
@@ -42,12 +41,12 @@ export default {
       display: flex;
       align-items: center;
       color: $fontDark;
-    }
-    .taskInput::placeholder {
-      text-align: center;
-      font-family: Inter;
-      font-size: 1.25rem;
-      color: $bgTitle;
+      &::placeholder {
+        text-align: center;
+        font-family: Inter;
+        font-size: 1.25rem;
+        color: $bgTitle;
+      }
     }
     @include mobileSmall {
       font-size: 1rem;
