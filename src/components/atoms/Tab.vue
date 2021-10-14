@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped lang="scss" module>
-label {
+.categoryLabel {
   display: flex;
   .category {
     display: block;

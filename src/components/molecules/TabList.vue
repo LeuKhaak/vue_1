@@ -1,8 +1,7 @@
 <template>
   <div :class="$style.filter">
-    <Counter />
     <div :class="$style.wrapper">
-      <CategoryRadio
+      <Tab
         v-for="category in categories"
         :key="category.id"
         :name="category.name"
@@ -13,8 +12,7 @@
 </template>
 
 <script>
-import Counter from "@/components/elements/atoms/Counter";
-import CategoryRadio from "@/components/elements/atoms/CategoryRadio";
+import Tab from "@/components/atoms/Tab";
 
 export default {
   data() {
@@ -27,8 +25,7 @@ export default {
     };
   },
   components: {
-    Counter,
-    CategoryRadio,
+    Tab,
   },
 };
 </script>

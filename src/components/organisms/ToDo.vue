@@ -3,9 +3,9 @@
     <div :class="$style.bgImage">
       <div :class="$style.container">
         <div :class="$style.area">
-          <TitleH3 :title="title" />
+          <Title :title="title" />
           <Content />
-          <Filtering />
+          <Footer />
         </div>
       </div>
     </div>
@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Filtering from "@/components/elements/molecules/Filtering.vue";
-import TitleH3 from "@/components/elements/atoms/TitleH3";
-import Content from "@/components/Content/Content.vue";
+import Footer from "@/components/organisms/Footer.vue";
+import Title from "@/components/atoms/Title";
+import Content from "@/components/organisms/Content.vue";
 
 export default {
   data() {
@@ -24,8 +24,8 @@ export default {
     };
   },
   components: {
-    Filtering,
-    TitleH3,
+    Footer,
+    Title,
     Content,
   },
 };
@@ -39,7 +39,7 @@ export default {
     max-width: 74rem;
     padding-top: 6rem;
     min-height: 100vh;
-    background-image: url(../assets/images/background.png);
+    background-image: url(../../assets/images/background.png);
     background-repeat: no-repeat;
     background-position: 41rem 4rem;
     @include desktop {

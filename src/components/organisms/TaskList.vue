@@ -1,11 +1,11 @@
 <template>
-  <ul :class="$style.list">
+  <div :class="$style.list">
     <Task v-for="task in tasks" :key="task.id" :name="task.name" />
-  </ul>
+  </div>
 </template>
 
 <script>
-import Task from "@/components/elements/molecules/Task.vue";
+import Task from "@/components/molecules/Task.vue";
 export default {
   data() {
     return {
