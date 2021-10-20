@@ -1,25 +1,28 @@
 <template>
   <div :class="$style.list">
+    <div
+      :class="$style.noTasks"
+      :style="{ display: GET_ALL_TASKS.length > 0 ? 'none' : 'flex' }"
+    >
+      NO TASKS!
+    </div>
     <Task
-      v-for="task in tasks"
+      v-for="task in GET_ALL_TASKS"
       :key="task.id"
+      :id="task.id"
       :name="task.name"
       :isChecked="task.isChecked"
+      :isVisible="task.isVisible"
     />
   </div>
 </template>
 
 <script>
 import Task from "@/components/molecules/Task.vue";
+import { mapGetters } from "vuex";
 export default {
-  data() {
-    return {
-      tasks: [
-        { id: 1, name: "Task 1", isChecked: true },
-        { id: 2, name: "Task 2", isChecked: false },
-        { id: 3, name: "Task 3", isChecked: false },
-      ],
-    };
+  computed: {
+    ...mapGetters(["GET_ALL_TASKS"]),
   },
   components: {
     Task,
@@ -30,5 +33,9 @@ export default {
 <style lang="scss" module>
 .list {
   padding-bottom: 0;
+  .noTasks {
+    @extend %task;
+    justify-content: center;
+  }
 }
 </style>

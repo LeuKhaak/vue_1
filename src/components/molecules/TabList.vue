@@ -2,10 +2,11 @@
   <div :class="$style.filter">
     <div :class="$style.wrapper">
       <Tab
-        v-for="category in categories"
-        :key="category.id"
-        :name="category.name"
-        :isChecked="category.isChecked"
+        v-for="tab in GET_TABS"
+        :key="tab.id"
+        :id="tab.id"
+        :name="tab.name"
+        :isChecked="tab.isChecked"
       />
     </div>
   </div>
@@ -13,16 +14,10 @@
 
 <script>
 import Tab from "@/components/atoms/Tab";
-
+import { mapGetters } from "vuex";
 export default {
-  data() {
-    return {
-      categories: [
-        { id: 1, name: "All", isChecked: true },
-        { id: 2, name: "Active", isChecked: false },
-        { id: 3, name: "Completed", isChecked: false },
-      ],
-    };
+  computed: {
+    ...mapGetters(["GET_TABS"]),
   },
   components: {
     Tab,

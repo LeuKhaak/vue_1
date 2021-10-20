@@ -1,12 +1,13 @@
 <template>
   <div :class="$style.content">
-    <TaskList :tasks="tasks" />
+    <TaskList />
     <div :class="$style.add">
       <input
         :class="$style.taskInput"
         type="text"
         name="new-task"
         placeholder="Add a new task"
+        @keydown="add"
       />
     </div>
   </div>
@@ -14,8 +15,15 @@
 
 <script>
 import TaskList from "@/components/organisms/TaskList.vue";
+import { mapMutations } from "vuex";
 
 export default {
+  methods: {
+    ...mapMutations(["addTask"]),
+    add(event) {
+      this.addTask(event);
+    },
+  },
   components: {
     TaskList,
   },

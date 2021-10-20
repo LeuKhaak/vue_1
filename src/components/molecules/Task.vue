@@ -1,21 +1,35 @@
 <template>
-  <label :class="$style.task">
+  <label :class="$style.task" :style="{ display: isVisible ? 'flex' : 'none' }">
     <input
       :class="$style.check"
       type="checkbox"
       name="task"
+      :id="id"
       :checked="isChecked"
+      @input="check"
     />
     <span :class="$style.text">{{ name }}</span>
-    <button :class="$style.delete"></button>
+    <button :class="$style.delete" :id="'x' + id" @click="deleteTask"></button>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
+  methods: {
+    ...mapMutations(["checkTask", "removeTask"]),
+    check() {
+      this.checkTask(this.id);
+    },
+    deleteTask() {
+      this.removeTask(this.id);
+    },
+  },
   props: {
     name: String,
     isChecked: Boolean,
+    isVisible: Boolean,
+    id: String,
   },
 };
 </script>
@@ -45,6 +59,7 @@ export default {
     }
   }
   .text {
+    max-width: calc(100% - 5.5rem);
     font-family: Inter;
     font-size: 1.25rem;
     line-height: 1.75rem;
