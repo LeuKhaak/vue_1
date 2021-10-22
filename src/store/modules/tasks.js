@@ -28,7 +28,7 @@ export default {
       });
     },
     addTask(state, text) {
-      if (text !== "") {
+      if (text) {
         const newTask = {
           id: uuidv4(),
           name: text,
@@ -49,9 +49,9 @@ export default {
     getAllTasks(state) {
       switch (state.tab) {
         case "Active":
-          return state.tasks.filter((item) => item.isChecked === false);
+          return state.tasks.filter((item) => !item.isChecked);
         case "Completed":
-          return state.tasks.filter((item) => item.isChecked === true);
+          return state.tasks.filter((item) => item.isChecked);
         default:
           return state.tasks;
       }
@@ -60,7 +60,7 @@ export default {
       return state.tasks.length;
     },
     getCompletedTasksAmount(state) {
-      return state.tasks.filter((item) => item.isChecked === true).length;
+      return state.tasks.filter((item) => item.isChecked).length;
     },
   },
 };

@@ -11,8 +11,7 @@ export default {
   mutations: {
     checkTab(state, id) {
       state.tabs.forEach((element) => {
-        if (element.id === id) element.isChecked = true;
-        else element.isChecked = false;
+        element.isChecked = element.id === id ? true : false;
       });
     },
   },
