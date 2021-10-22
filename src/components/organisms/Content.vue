@@ -8,7 +8,7 @@
         name="new-task"
         placeholder="Add a new task"
         v-model="taskText"
-        @keydown="add"
+        @keydown.enter="add"
       />
     </div>
   </div>
@@ -21,11 +21,9 @@ import { mapMutations } from "vuex";
 export default {
   methods: {
     ...mapMutations(["addTask"]),
-    add(event) {
-      if (event.key === "Enter") {
-        this.addTask(this.taskText);
-        this.taskText = "";
-      }
+    add() {
+      this.addTask(this.taskText);
+      this.taskText = "";
     },
   },
   data: function () {
