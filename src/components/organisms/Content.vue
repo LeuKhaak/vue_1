@@ -7,6 +7,7 @@
         type="text"
         name="new-task"
         placeholder="Add a new task"
+        v-model="taskText"
         @keydown="add"
       />
     </div>
@@ -21,8 +22,16 @@ export default {
   methods: {
     ...mapMutations(["addTask"]),
     add(event) {
-      this.addTask(event);
+      if (event.key === "Enter") {
+        this.addTask(this.taskText);
+        this.taskText = "";
+      }
     },
+  },
+  data: function () {
+    return {
+      taskText: "",
+    };
   },
   components: {
     TaskList,

@@ -1,23 +1,24 @@
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   state: {
     tabs: [
-      { id: 1, name: "All", isChecked: true },
-      { id: 2, name: "Active", isChecked: false },
-      { id: 3, name: "Completed", isChecked: false },
+      { id: uuidv4(), name: "All", isChecked: true },
+      { id: uuidv4(), name: "Active", isChecked: false },
+      { id: uuidv4(), name: "Completed", isChecked: false },
     ],
   },
   mutations: {
-    checkTab(state, event) {
+    checkTab(state, id) {
       state.tabs.forEach((element) => {
-        element.isChecked = false;
+        if (element.id === id) element.isChecked = true;
+        else element.isChecked = false;
       });
-      state.tabs[event.target.id - 1].isChecked = true;
-      //console.log(state.tabs);
     },
   },
   actions: {},
   getters: {
-    GET_TABS(state) {
+    getTabs(state) {
       return state.tabs;
     },
   },

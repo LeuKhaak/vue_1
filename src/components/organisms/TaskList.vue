@@ -1,13 +1,8 @@
 <template>
   <div :class="$style.list">
-    <div
-      :class="$style.noTasks"
-      :style="{ display: GET_ALL_TASKS.length > 0 ? 'none' : 'flex' }"
-    >
-      NO TASKS!
-    </div>
+    <div :class="$style.noTasks" v-if="!getAllTasks.length">NO TASKS!</div>
     <Task
-      v-for="task in GET_ALL_TASKS"
+      v-for="task in getAllTasks"
       :key="task.id"
       :id="task.id"
       :name="task.name"
@@ -22,7 +17,7 @@ import Task from "@/components/molecules/Task.vue";
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["GET_ALL_TASKS"]),
+    ...mapGetters(["getAllTasks"]),
   },
   components: {
     Task,

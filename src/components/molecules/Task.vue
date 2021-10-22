@@ -1,15 +1,14 @@
 <template>
-  <label :class="$style.task" :style="{ display: isVisible ? 'flex' : 'none' }">
+  <label :class="$style.task">
     <input
       :class="$style.check"
       type="checkbox"
       name="task"
-      :id="id"
       :checked="isChecked"
       @input="check"
     />
     <span :class="$style.text">{{ name }}</span>
-    <button :class="$style.delete" :id="'x' + id" @click="deleteTask"></button>
+    <button :class="$style.delete" @click="deleteTask"></button>
   </label>
 </template>
 

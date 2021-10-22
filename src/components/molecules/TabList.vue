@@ -2,7 +2,7 @@
   <div :class="$style.filter">
     <div :class="$style.wrapper">
       <Tab
-        v-for="tab in GET_TABS"
+        v-for="tab in getTabs"
         :key="tab.id"
         :id="tab.id"
         :name="tab.name"
@@ -17,7 +17,7 @@ import Tab from "@/components/atoms/Tab";
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["GET_TABS"]),
+    ...mapGetters(["getTabs"]),
   },
   components: {
     Tab,

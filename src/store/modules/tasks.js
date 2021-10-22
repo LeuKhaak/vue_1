@@ -2,24 +2,23 @@ import { v4 as uuidv4 } from "uuid";
 
 export default {
   state: {
+    tab: "All",
+    newTaskText: "",
     tasks: [
       {
         id: uuidv4(),
         name: "Task 1",
         isChecked: true,
-        isVisible: true,
       },
       {
         id: uuidv4(),
         name: "Task 2",
         isChecked: false,
-        isVisible: true,
       },
       {
         id: uuidv4(),
         name: "Task 3",
         isChecked: false,
-        isVisible: true,
       },
     ],
   },
@@ -29,38 +28,40 @@ export default {
         if (element.id === id) element.isChecked = !element.isChecked;
       });
     },
-    addTask(state, event) {
-      if (event.key == "Enter") {
+    addTask(state, text) {
+      if (text !== "") {
         const newTask = {
           id: uuidv4(),
-          name: event.target.value,
+          name: text,
           isChecked: false,
-          isVisible: true,
         };
-        event.target.value = "";
         state.tasks.push(newTask);
       }
     },
     removeTask(state, id) {
-      const newTasks = state.tasks.filter((item) => item.id !== id);
-      state.tasks = newTasks;
+      state.tasks = state.tasks.filter((item) => item.id !== id);
     },
     filterTasks(state, tab) {
-      state.tasks.forEach((element) => {
-        if (tab === "Active") {
-          element.isVisible = element.isChecked === true ? false : true;
-        } else if (tab === "Completed") {
-          element.isVisible = element.isChecked === false ? false : true;
-        } else if (tab === "All") {
-          element.isVisible = true;
-        }
-      });
+      state.tab = tab;
     },
   },
   actions: {},
   getters: {
-    GET_ALL_TASKS(state) {
-      return state.tasks;
+    getAllTasks(state) {
+      switch (state.tab) {
+        case "Active":
+          return state.tasks.filter((item) => item.isChecked === false);
+        case "Completed":
+          return state.tasks.filter((item) => item.isChecked === true);
+        default:
+          return state.tasks;
+      }
+    },
+    getTasksAmount(state) {
+      return state.tasks.length;
+    },
+    getCompletedTasksAmount(state) {
+      return state.tasks.filter((item) => item.isChecked === true).length;
     },
   },
 };

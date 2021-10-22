@@ -1,7 +1,6 @@
 <template>
   <label :class="$style.categoryLabel">
     <input
-      :id="id"
       :class="$style.categoryInput"
       type="radio"
       name="tasks"
@@ -18,8 +17,8 @@ import { mapMutations } from "vuex";
 export default {
   methods: {
     ...mapMutations(["checkTab", "filterTasks"]),
-    check(event) {
-      this.checkTab(event);
+    check() {
+      this.checkTab(this.id);
     },
     filter() {
       this.filterTasks(this.name);
@@ -28,7 +27,7 @@ export default {
   props: {
     name: String,
     isChecked: Boolean,
-    id: Number,
+    id: String,
   },
   requared: true,
 };
