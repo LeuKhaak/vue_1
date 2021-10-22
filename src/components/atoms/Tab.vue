@@ -5,16 +5,29 @@
       type="radio"
       name="tasks"
       :checked="isChecked"
+      @input="check"
+      @click="filter"
     />
     <span :class="$style.category">{{ name }}</span>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
+  methods: {
+    ...mapMutations(["checkTab", "filterTasks"]),
+    check() {
+      this.checkTab(this.id);
+    },
+    filter() {
+      this.filterTasks(this.name);
+    },
+  },
   props: {
     name: String,
     isChecked: Boolean,
+    id: String,
   },
   requared: true,
 };

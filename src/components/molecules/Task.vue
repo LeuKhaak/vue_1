@@ -5,17 +5,29 @@
       type="checkbox"
       name="task"
       :checked="isChecked"
+      @input="check"
     />
     <span :class="$style.text">{{ name }}</span>
-    <button :class="$style.delete"></button>
+    <button :class="$style.delete" @click="deleteTask"></button>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
+  methods: {
+    ...mapMutations(["checkTask", "removeTask"]),
+    check() {
+      this.checkTask(this.id);
+    },
+    deleteTask() {
+      this.removeTask(this.id);
+    },
+  },
   props: {
     name: String,
     isChecked: Boolean,
+    id: String,
   },
 };
 </script>
@@ -45,6 +57,7 @@ export default {
     }
   }
   .text {
+    max-width: calc(100% - 5.5rem);
     font-family: Inter;
     font-size: 1.25rem;
     line-height: 1.75rem;

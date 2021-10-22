@@ -1,14 +1,19 @@
 <template>
   <div :class="$style.filter">
-    <span :class="$style.counter">1/3 left</span>
+    <span :class="$style.counter"
+      >{{ getCompletedTasksAmount }}/{{ getTasksAmount }} left</span
+    >
     <TabList />
   </div>
 </template>
 
 <script>
 import TabList from "@/components/molecules/TabList.vue";
-
+import { mapGetters } from "vuex";
 export default {
+  computed: {
+    ...mapGetters(["getTasksAmount", "getCompletedTasksAmount"]),
+  },
   components: {
     TabList,
   },
