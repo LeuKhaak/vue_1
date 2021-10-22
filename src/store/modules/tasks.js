@@ -26,6 +26,7 @@ export default {
       state.tasks.forEach((element) => {
         if (element.id === id) element.isChecked = !element.isChecked;
       });
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     addTask(state, text) {
       if (text) {
@@ -35,16 +36,27 @@ export default {
           isChecked: false,
         };
         state.tasks.push(newTask);
+        localStorage.setItem("tasks", JSON.stringify(state.tasks));
       }
     },
     removeTask(state, id) {
       state.tasks = state.tasks.filter((item) => item.id !== id);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     filterTasks(state, tab) {
       state.tab = tab;
     },
+    setSavedData(state) {
+      state.tasks = JSON.parse(localStorage.getItem("tasks"));
+    },
   },
-  actions: {},
+  actions: {
+    //setSavedData: async () => {
+    //  const data = await localStorage.getItem("tasks");
+    //  console.log(data);
+    //  return data;
+    //},
+  },
   getters: {
     getAllTasks(state) {
       switch (state.tab) {
