@@ -27,7 +27,6 @@ export default {
   props: {
     name: String,
     isChecked: Boolean,
-    isVisible: Boolean,
     id: String,
   },
 };
