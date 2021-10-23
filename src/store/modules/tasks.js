@@ -35,14 +35,9 @@ export default {
     },
   },
   actions: {
-    setSavedData({ commit }) {
-      setTimeout(() => {
-        commit("setSavedData");
-      }, 1000);
+    setSavedData(context) {
+      context.commit("setSavedData");
     },
-    //setSavedData(context) {
-    //  context.commit("setSavedData");
-    //},
   },
   getters: {
     getAllTasks(state) {
