@@ -3,23 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   state: {
     tab: "All",
-    tasks: [
-      {
-        id: uuidv4(),
-        name: "Task 1",
-        isChecked: true,
-      },
-      {
-        id: uuidv4(),
-        name: "Task 2",
-        isChecked: false,
-      },
-      {
-        id: uuidv4(),
-        name: "Task 3",
-        isChecked: false,
-      },
-    ],
+    tasks: [],
   },
   mutations: {
     checkTask(state, id) {
@@ -51,10 +35,13 @@ export default {
     },
   },
   actions: {
-    //setSavedData: async () => {
-    //  const data = await localStorage.getItem("tasks");
-    //  console.log(data);
-    //  return data;
+    setSavedData({ commit }) {
+      setTimeout(() => {
+        commit("setSavedData");
+      }, 1000);
+    },
+    //setSavedData(context) {
+    //  context.commit("setSavedData");
     //},
   },
   getters: {

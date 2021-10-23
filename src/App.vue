@@ -6,7 +6,7 @@
 
 <script>
 import ToDo from "@/components/organisms/ToDo.vue";
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -14,7 +14,7 @@ export default {
     if (localStorage.getItem("tasks")) this.setData();
   },
   methods: {
-    ...mapMutations(["setSavedData"]),
+    ...mapActions(["setSavedData"]),
     setData() {
       this.setSavedData();
     },
