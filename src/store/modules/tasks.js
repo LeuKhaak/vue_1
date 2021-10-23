@@ -3,29 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   state: {
     tab: "All",
-    tasks: [
-      {
-        id: uuidv4(),
-        name: "Task 1",
-        isChecked: true,
-      },
-      {
-        id: uuidv4(),
-        name: "Task 2",
-        isChecked: false,
-      },
-      {
-        id: uuidv4(),
-        name: "Task 3",
-        isChecked: false,
-      },
-    ],
+    tasks: [],
   },
   mutations: {
     checkTask(state, id) {
       state.tasks.forEach((element) => {
         if (element.id === id) element.isChecked = !element.isChecked;
       });
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     addTask(state, text) {
       if (text) {
@@ -35,16 +20,25 @@ export default {
           isChecked: false,
         };
         state.tasks.push(newTask);
+        localStorage.setItem("tasks", JSON.stringify(state.tasks));
       }
     },
     removeTask(state, id) {
       state.tasks = state.tasks.filter((item) => item.id !== id);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     filterTasks(state, tab) {
       state.tab = tab;
     },
+    setSavedData(state) {
+      state.tasks = JSON.parse(localStorage.getItem("tasks"));
+    },
   },
-  actions: {},
+  actions: {
+    setSavedData(context) {
+      context.commit("setSavedData");
+    },
+  },
   getters: {
     getAllTasks(state) {
       switch (state.tab) {
