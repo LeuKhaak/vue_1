@@ -1,26 +1,26 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
-import TabList from "@/components/molecules/TabList.vue";
+import TaskList from "@/components/organisms/TaskList.vue";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe("test for TabList", () => {
+describe("test for TaskList", () => {
   let store;
   let getters;
 
   beforeEach(() => {
     getters = {
-      getTabs: jest.fn(),
+      getAllTasks: jest.fn(),
     };
     store = new Vuex.Store({
       getters,
     });
   });
 
-  it("render a Tab", () => {
-    const wrapper = shallowMount(TabList, { store, localVue });
-    expect(wrapper.find("Tab")).toBeTruthy();
+  it("render a Task", () => {
+    const wrapper = shallowMount(TaskList, { store, localVue });
+    expect(wrapper.find("Task")).toBeTruthy();
     expect(wrapper.isVisible()).toBe(true);
   });
 });
