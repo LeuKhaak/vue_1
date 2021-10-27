@@ -11,7 +11,7 @@ describe("test for TaskList", () => {
 
   beforeEach(() => {
     getters = {
-      getAllTasks: jest.fn(),
+      getAllTasks: () => [],
     };
     store = new Vuex.Store({
       getters,

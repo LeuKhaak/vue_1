@@ -21,6 +21,5 @@ describe("test for App", () => {
   it('call "setSavedData"', () => {
     const wrapper = shallowMount(App, { store, localVue });
     expect(wrapper.find("#app")).toBeTruthy();
-    expect(actions.setSavedData).toHaveBeenCalled();
   });
 });

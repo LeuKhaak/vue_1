@@ -3,7 +3,7 @@
     <div :class="$style.bgImage">
       <div :class="$style.container">
         <div :class="$style.area">
-          <Title :title="title" />
+          <Title />
           <Content />
           <Footer />
         </div>
@@ -18,11 +18,6 @@ import Title from "@/components/atoms/Title";
 import Content from "@/components/organisms/Content.vue";
 
 export default {
-  data() {
-    return {
-      title: "to do list",
-    };
-  },
   components: {
     Footer,
     Title,

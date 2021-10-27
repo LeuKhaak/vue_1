@@ -3,7 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 export default {
   state: {
     tab: "All",
-    tasks: [],
+    tasks: [
+      {
+        id: uuidv4(),
+        name: "Task",
+        isChecked: false,
+      },
+    ],
   },
   mutations: {
     checkTask(state, id) {
@@ -31,7 +37,13 @@ export default {
       state.tab = tab;
     },
     setSavedData(state) {
-      state.tasks = JSON.parse(localStorage.getItem("tasks"));
+      state.tasks = JSON.parse(localStorage.getItem("tasks")) || [
+        {
+          id: uuidv4(),
+          name: "Task",
+          isChecked: false,
+        },
+      ];
     },
   },
   actions: {
