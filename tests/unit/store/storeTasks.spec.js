@@ -23,6 +23,8 @@ describe("tests for store", () => {
   it("checkTab", () => {
     let tabId = "id";
     store.commit("checkTab", tabId);
-    expect(store.state.tabs[0].isChecked).toBe(true);
+    console.log(store.state.tabs.tabs[0]);
+    expect(store.state.tabs.tabs[0].isChecked).toBe(false);
+    expect(store.state.tabs.tabs[1].isChecked).toBe(true);
   });
 });
