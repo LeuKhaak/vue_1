@@ -23,7 +23,7 @@ export default {
         const newTask = {
           id: uuidv4(),
           name: text,
-          isChecked: false,
+          isChecked: true,
         };
         state.tasks.push(newTask);
         localStorage.setItem("tasks", JSON.stringify(state.tasks));
@@ -41,7 +41,7 @@ export default {
         {
           id: uuidv4(),
           name: "Task",
-          isChecked: false,
+          isChecked: true,
         },
       ];
     },
@@ -54,12 +54,14 @@ export default {
   getters: {
     getAllTasks(state) {
       switch (state.tab) {
+        case "All":
+          return state.tasks;
         case "Active":
           return state.tasks.filter((item) => !item.isChecked);
         case "Completed":
           return state.tasks.filter((item) => item.isChecked);
-        default:
-          return state.tasks;
+        //default:
+        //  return state.tasks;
       }
     },
     getTasksAmount(state) {
