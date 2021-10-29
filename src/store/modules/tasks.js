@@ -41,7 +41,7 @@ export default {
         {
           id: uuidv4(),
           name: "Task",
-          isChecked: true,
+          isChecked: false,
         },
       ];
     },
@@ -60,8 +60,6 @@ export default {
           return state.tasks.filter((item) => !item.isChecked);
         case "Completed":
           return state.tasks.filter((item) => item.isChecked);
-        //default:
-        //  return state.tasks;
       }
     },
     getTasksAmount(state) {
