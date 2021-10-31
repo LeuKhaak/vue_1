@@ -59,29 +59,27 @@ describe("tests for store", () => {
   //  }
   //});
 
-  //it("getAllTasks", () => {
-  //  store.state.tasks.tab === "All";
-  //  //store.commit("checkTask", store.state.tasks.tasks[0].id);
-  //  store.state.tabs.tabs[1].isChecked = false;
-  //  store.state.tabs.tabs[0].isChecked = true;
-  //  expect(store.getters.getAllTasks.length).toBe(1);
-  //});
+  it("getAllTasks", () => {
+    store.state.tasks.tab = "All";
+    store.state.tabs.tabs[1].isChecked = false;
+    store.state.tabs.tabs[0].isChecked = true;
+    expect(store.getters.getAllTasks.length).toBe(1);
+  });
 
   it("getAllTasks", () => {
-    store.state.tasks.tab === "Active";
-    //store.commit("checkTask", store.state.tasks.tasks[0].id);
+    store.state.tasks.tab = "Active";
     store.state.tabs.tabs[0].isChecked = false;
     store.state.tabs.tabs[1].isChecked = true;
     expect(store.getters.getAllTasks.length).toBe(1);
   });
 
-  //it("getAllTasks", () => {
-  //  store.state.tasks.tab === "Completed";
-  //  //store.commit("checkTask", store.state.tasks.tasks[0].id);
-  //  store.state.tabs.tabs[1].isChecked = false;
-  //  store.state.tabs.tabs[2].isChecked = true;
-  //  expect(store.getters.getAllTasks.length).toBe(1);
-  //});
+  it("getAllTasks", () => {
+    store.state.tasks.tab = "Completed";
+    store.commit("checkTask", store.state.tasks.tasks[0].id);
+    store.state.tabs.tabs[1].isChecked = false;
+    store.state.tabs.tabs[2].isChecked = true;
+    expect(store.getters.getAllTasks.length).toBe(1);
+  });
 
   it("getTasksAmount", () => {
     expect(store.getters.getTasksAmount).toBe(store.state.tasks.tasks.length);

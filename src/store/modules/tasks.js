@@ -7,7 +7,7 @@ export default {
       {
         id: uuidv4(),
         name: "Task",
-        isChecked: false,
+        isChecked: true,
       },
     ],
   },
