@@ -1,14 +1,9 @@
 <template>
-  <h3 :class="$style.title">{{ title }}</h3>
+  <h3 :class="$style.title">to do list</h3>
 </template>
 
 <script>
-export default {
-  props: {
-    title: String,
-  },
-  requared: true,
-};
+export default {};
 </script>
 
 <style lang="scss" module>
