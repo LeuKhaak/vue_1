@@ -7,7 +7,7 @@ export default {
       {
         id: uuidv4(),
         name: "Task",
-        isChecked: true,
+        isChecked: false,
       },
     ],
   },
@@ -23,7 +23,7 @@ export default {
         const newTask = {
           id: uuidv4(),
           name: text,
-          isChecked: true,
+          isChecked: false,
         };
         state.tasks.push(newTask);
         localStorage.setItem("tasks", JSON.stringify(state.tasks));
