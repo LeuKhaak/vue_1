@@ -1,8 +1,7 @@
 <template>
   <div :class="$style.filter">
     <span :class="$style.counter"
-      >{{ getCompletedTasksAmount }}/<span>{{ getTasksAmount }}</span>
-      left</span
+      >{{ getCompletedTasksAmount }}/{{ getTasksAmount }} left</span
     >
     <TabList />
   </div>

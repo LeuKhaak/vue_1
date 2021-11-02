@@ -34,8 +34,8 @@ describe("ToDo", () => {
     cy.get("label").contains("Complete").click();
   });
 
-  //it("Display tasks amount", () => {
-  //  // @ts-ignore
-  //  cy.get("span").contains("left").siblings("span").contains("{}");
-  //});
+  it("Display tasks amount", () => {
+    // @ts-ignore
+    cy.get("span").contains("1/2 left").should("be.visible");
+  });
 });
