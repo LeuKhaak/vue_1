@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.list">
+  <div data-tasks :class="$style.list">
     <div :class="$style.noTasks" v-if="!getAllTasks.length">NO TASKS!</div>
     <Task
       v-for="task in getAllTasks"
